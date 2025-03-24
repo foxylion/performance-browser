@@ -74,7 +74,8 @@ export const App = () => {
                   value={pixelPerMs}
                   onChange={(_, value) => setPixelPerMs(value as number)}
                   min={0.1}
-                  max={100}
+                  max={20}
+                  step={0.1}
                 />
               </Grid2>
             </Grid2>
@@ -98,9 +99,11 @@ export const App = () => {
           </Grid2>
         </Toolbar>
       </AppBar>
-      <Grid2 container direction="column" style={{ margin: 16, marginTop: 200, overflowX: 'auto' }}>
-        <PerformanceSwimlane entries={entriesParsed} minStartTime={minStartTime} pixelPerMs={pixelPerMs} />
-      </Grid2>
+      <div style={{ position: 'absolute', left: 0, top: 200, right: 0, bottom: 0, overflow: 'auto' }}>
+        <Grid2 container direction="column" style={{ margin: 16, width: '100%' }}>
+          <PerformanceSwimlane entries={entriesParsed} minStartTime={minStartTime} pixelPerMs={pixelPerMs} />
+        </Grid2>
+      </div>
     </>
   );
 };
