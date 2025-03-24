@@ -11,7 +11,7 @@ export const App = () => {
   const entriesParsed: PerformanceEntry[] = useMemo(() => {
     try {
       setError(false);
-      const chunks = parseJsonsFromText(entriesText);
+      const chunks = parseJsonsFromText(entriesText.replace('\n', ''));
       const jsonObjects = chunks.filter((chunk) => chunk.startsWith('{') && chunk.endsWith('}'));
       return jsonObjects
         .map((json) => {
